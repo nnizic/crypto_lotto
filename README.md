@@ -85,6 +85,7 @@ Pametni ugovor upravlja:
 ## 📬 Kontakt
 
 Autor: Neven Nižić
+
 Testnet: [https://sepolia.etherscan.io/address/...]  
 Smart Contract: `0x...`  
 NFT primjer: [Link na IPFS putem Pinata]
