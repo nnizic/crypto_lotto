@@ -1,0 +1,15 @@
+{
+  "name": "Crypto Lotto Pobjednik 🏆",
+  "description": "NFT nagrada za dobitnika Crypto-Lotto izvlačenja s najviše pogođenih brojeva.",
+  "image": "ipfs://bafybeieicymqdmddoqdheeq2x6ocozpsqvttai2v4m7uu7dhha4ckjbafy",
+  "attributes": [
+    {
+      "trait_type": "Vrsta nagrade",
+      "value": "Pobjednik kola"
+    },
+    {
+      "trait_type": "Broj pogođenih brojeva",
+      "value": "Najviše"
+    }
+  ]
+}
