@@ -8,7 +8,7 @@ Decentralizirana aplikacija za lutriju temeljena na Ethereum blockchainu (Sepoli
 
 - **Solidity** – pametni ugovori
 - **Chainlink Oracle** – dohvat BTC/USD cijene
-- **Chainlink Keepers** – automatsko izvlačenje brojeva (planirano)
+- **Chainlink Keepers** – automatsko izvlačenje brojeva (planirano?)
 - **IPFS (Pinata)** – pohrana NFT metapodataka
 - **Vue.js 3** – frontend aplikacija
 - **Ethers.js** – komunikacija s blockchainom putem MetaMaska
@@ -56,7 +56,7 @@ Pametni ugovor upravlja:
 
 ## 🖼️ NFT nagrada
 
-- Svaki NFT ima **sliku trofeja** generiranu digitalno (npr. AI ili vlastiti dizajn)
+- Svaki NFT ima **sliku trofeja** generiranu digitalno
 - NFT metapodaci su pohranjeni na **IPFS-u** putem **Pinata** i povezani s dobitnikom kola
 
 ---
@@ -86,8 +86,19 @@ Pametni ugovor upravlja:
 
 Autor: Neven Nižić
 
-Testnet: [https://sepolia.etherscan.io/address/...]  
-Smart Contract: `0x...`  
-NFT primjer: [Link na IPFS putem Pinata]
+Testnet: [https://sepolia.etherscan.io/address/0x543FC8F0133Bef8dde3a8a84e1d45f1459b57187]  
+Smart Contract:[0x543FC8F0133Bef8dde3a8a84e1d45f1459b57187]  
+NFT primjer:[bafybeieicymqdmddoqdheeq2x6ocozpsqvttai2v4m7uu7dhha4ckjbafy]
+
+---
+
+🏛️ **Organization**
+
+Juraj Dobrila University of Pula  
+Faculty of Informatics  
+_Blockchain Applications, Academic Year 2024./2025._
+
+**Mentor:** [Nikola Tanković](https://fipu.unipu.hr/fipu/nikola.tankovic)  
+📧 nikola.tankovic@unipu.hr
 
 ---
