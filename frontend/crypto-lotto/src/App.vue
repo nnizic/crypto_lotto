@@ -6,7 +6,12 @@
 </template>
 
 <script setup>
-import ConnectWallet from "./components/ConnectWallet.vue";
+import ConnectWallet from './components/ConnectWallet.vue';
+import UplataListica from './components/UplataListica.vue';
+import Izvuci from './components/Izvuci.vue';
+import DobitniBrojevi from './components/DobitniBrojevi.vue';
+import BrojIgraca from './components/BrojIgraca.vue';
+import ResetirajIzvlacenje from './components/ResetirajIzvlacenje.vue';
 </script>
 <style>
 #app {
