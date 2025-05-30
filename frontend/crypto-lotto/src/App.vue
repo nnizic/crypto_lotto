@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <h1>CRYPTO LOTTO</h1>
-    <ConnectWallet />
+    <connect-wallet />
+    <resetiraj-izvlacenje />
   </div>
 </template>
 
