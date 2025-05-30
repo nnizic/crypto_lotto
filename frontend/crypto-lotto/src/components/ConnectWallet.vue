@@ -6,22 +6,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { ethers  } from 'ethers'
+import { ref } from "vue";
+import { ethers } from "ethers";
 
-const account = ref(null)
+const account = ref(null);
 
 async function connectWallet() {
-    if (window.ethereum) {
-        try {
-            const [addr] = await window.ethereum.request({ method: 'eth_requestAccounts' })
-            account.value = addr
-        } catch (err) {
-            console.error('Korisnik je odbio MetaMask povezivanje', err)
-        }
-    } else {
-        alert('MetaMask nije pronađen. Instaliraj ga.')
+  if (window.ethereum) {
+    try {
+      const [addr] = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      account.value = addr;
+    } catch (err) {
+      console.error("Korisnik je odbio MetaMask povezivanje", err);
     }
+  } else {
+    alert("MetaMask nije pronađen. Instaliraj ga.");
+  }
 }
-
 </script>

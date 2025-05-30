@@ -1,5 +1,5 @@
-import { ethers } from 'ethers';
-import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../contracts/cryptoLotto';
+import { ethers } from "ethers";
+import { CONTRACT_ADDRESS, CONTRACT_ABI } from "../contracts/cryptoLotto";
 
 export function getLottoContract() {
   const provider = new ethers.BrowserProvider(window.ethereum);

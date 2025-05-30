@@ -7,19 +7,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { getLottoContract } from '../utils/contract'
+import { ref } from "vue";
+import { getLottoContract } from "../utils/contract";
 
-const broj = ref(0)
+const broj = ref(0);
 
 async function dohvati() {
   try {
-    const contract = await getLottoContract()
-    broj.value = Number(await contract.brojIgraca())
+    const contract = await getLottoContract();
+    broj.value = Number(await contract.brojIgraca());
   } catch (err) {
-    console.error(err)
-    alert("Greška pri dohvaćanju broja igrača.")
+    console.error(err);
+    alert("Greška pri dohvaćanju broja igrača.");
   }
 }
 </script>
-

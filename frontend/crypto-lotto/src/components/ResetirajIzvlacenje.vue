@@ -1,30 +1,30 @@
 <template>
   <div>
     <button @click="resetDraw" :disabled="loading">
-      {{ loading ? 'Resetiram...' : 'Resetiraj Izvlačenje' }}
+      {{ loading ? "Resetiram..." : "Resetiraj Izvlačenje" }}
     </button>
     <p v-if="message">{{ message }}</p>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { ethers } from 'ethers';
-import abi from '../contracts/CryptoLotto.json';
+import { ref } from "vue";
+import { ethers } from "ethers";
+import abi from "../contracts/CryptoLotto.json";
 
-const contractAddress = '0x543FC8F0133Bef8dde3a8a84e1d45f1459b57187';
-const message = ref('');
+const contractAddress = "0x543FC8F0133Bef8dde3a8a84e1d45f1459b57187";
+const message = ref("");
 const loading = ref(false);
 
 async function resetDraw() {
   if (!window.ethereum) {
-    message.value = 'MetaMask nije pronađen';
+    message.value = "MetaMask nije pronađen";
     return;
   }
 
   try {
     loading.value = true;
-    message.value = '';
+    message.value = "";
 
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
@@ -33,10 +33,10 @@ async function resetDraw() {
     const tx = await contract.resetirajIzvlacenje();
     await tx.wait();
 
-    message.value = 'Uspješno resetirano izvlačenje!';
+    message.value = "Uspješno resetirano izvlačenje!";
   } catch (err) {
     console.error(err);
-    message.value = 'Greška pri resetiranju izvlačenja';
+    message.value = "Greška pri resetiranju izvlačenja";
   } finally {
     loading.value = false;
   }
