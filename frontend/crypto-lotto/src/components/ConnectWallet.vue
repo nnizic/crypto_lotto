@@ -7,7 +7,6 @@
 
 <script setup>
 import { ref } from "vue";
-import { ethers } from "ethers";
 
 const account = ref(null);
 

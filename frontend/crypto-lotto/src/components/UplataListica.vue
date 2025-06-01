@@ -24,7 +24,7 @@ async function uplati() {
   try {
     const contract = await getLottoContract();
     const tx = await contract.uplatiListic(brojevi.value, {
-      value: ethers.parseEther("0.01"),
+      value: ethers.utils.parseEther("0.01"),
     });
     await tx.wait();
     alert("Uplata uspješna!");
