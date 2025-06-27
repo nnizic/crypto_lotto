@@ -20,3 +20,13 @@ export function getNFTContract() {
   const signer = provider.getSigner();
   return new ethers.Contract(NFT_ADDRESS, NFT_ABI, signer);
 }
+
+// Provjera igrač ili admin
+export async function isAdmin() {
+  const contract = getLottoContract();
+  const owner = await contract.owner();
+  const accounts = await window.ethereum.request({
+    method: "eth_requestAccounts",
+  });
+  return accounts[0].toLowerCase() === owner.toLowerCase();
+}
