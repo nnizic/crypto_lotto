@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import { getUserNFTs } from "../utils/LottoNFT";
+import { getUserNFTs } from "../../utils/LottoNFT";
 
 const props = defineProps({
   userAddress: {

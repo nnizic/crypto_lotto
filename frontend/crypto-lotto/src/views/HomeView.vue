@@ -9,7 +9,7 @@
 
       <div v-if="isAdmin">
         <resetiraj-izvlacenje />
-        <izvuci-brojevi />
+        <izvuci-brojeve />
       </div>
 
       <div v-else>
@@ -27,7 +27,7 @@
 import { ref } from "vue";
 import ConnectWallet from "../components/ConnectWallet.vue";
 import UplataListica from "../components/UplataListica.vue";
-import IzvuciBrojeve from "../components/IzvuciBrojevi.vue";
+import IzvuciBrojeve from "../components/IzvuciBrojeve.vue";
 import DobitniBrojevi from "../components/DobitniBrojevi.vue";
 import BrojIgraca from "../components/BrojIgraca.vue";
 import ResetirajIzvlacenje from "../components/ResetirajIzvlacenje.vue";

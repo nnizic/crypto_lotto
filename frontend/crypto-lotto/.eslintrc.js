@@ -1,4 +1,4 @@
-i// dodano zbog globals
+// dodano zbog globals
 module.exports = {
   root: true,
   env: {
