@@ -32,7 +32,7 @@ import DobitniBrojevi from "../components/DobitniBrojevi.vue";
 import BrojIgraca from "../components/BrojIgraca.vue";
 import ResetirajIzvlacenje from "../components/ResetirajIzvlacenje.vue";
 import MojiNFTovi from "../components/MojiNFTovi.vue";
-import { isAdmin as checkIsAdmin } from "../utils/contract";
+import { isAdmin } from "../utils/contract";
 
 const account = ref(null);
 const isAdmin = ref(false);

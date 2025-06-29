@@ -11,8 +11,8 @@
     <ul v-else>
       <li v-for="id in nfts" :key="id">
         Token ID: {{ id }} – URI: 
-        <a :href="getIpfsLink(id)" target="_blank">
-          {{ getIpfsLink(id) }}
+        <a :href="getIpfsLink()" target="_blank">
+          {{ getIpfsLink() }}
         </a>
       </li>
     </ul>
@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import { getUserNFTs } from "../../utils/LottoNFT";
+import { getUserNFTs } from "../contracts/LottoNFT";
 
 const props = defineProps({
   userAddress: {
@@ -48,7 +48,7 @@ async function fetchNFTs() {
 }
 
 // IPFS URI helper
-function getIpfsLink(tokenId) {
+function getIpfsLink() {
   // svi koriste isti base URI - ista slika NFT-a za svih
   return "https://ipfs.io/ipfs/bafkreifi2gcphknhnzjoongq6pfrykurviqwxi4oivrplrdc2zadwz3lwe";
 }
