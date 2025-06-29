@@ -7,6 +7,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { isAdmin } from "../utils/contract";
+
+const emit = defineEmits(["walletConnected"]);
 
 const account = ref(null);
 
@@ -17,6 +20,11 @@ async function connectWallet() {
         method: "eth_requestAccounts",
       });
       account.value = addr;
+
+      // provjera admin statusa
+      const admin = await isAdmin();
+      emit("walletConnected", { address: addr, isAdmin: admin });
+
     } catch (err) {
       console.error("Korisnik je odbio MetaMask povezivanje", err);
     }
@@ -25,3 +33,4 @@ async function connectWallet() {
   }
 }
 </script>
+
