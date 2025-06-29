@@ -31,7 +31,7 @@ import IzvuciBrojeve from "../components/IzvuciBrojeve.vue";
 import DobitniBrojevi from "../components/DobitniBrojevi.vue";
 import BrojIgraca from "../components/BrojIgraca.vue";
 import ResetirajIzvlacenje from "../components/ResetirajIzvlacenje.vue";
-import MojiNFTovi from "../components/MojiNFTovi.vue";
+import MojiNftovi from "../components/MojiNftovi.vue";
 import { isAdmin } from "../utils/contract";
 
 const account = ref(null);
