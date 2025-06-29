@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref, watch } from "vue";
-import { getUserNFTs } from "../contracts/LottoNFT";
+import { getNFTsByOwner } from "../contracts/LottoNFT";
 
 const props = defineProps({
   userAddress: {
@@ -38,7 +38,7 @@ async function fetchNFTs() {
   if (!props.userAddress) return;
   loading.value = true;
   try {
-    const tokenIds = await getUserNFTs(props.userAddress);
+    const tokenIds = await getNFTsByOwner(props.userAddress);
     nfts.value = tokenIds;
   } catch (error) {
     console.error("Greška pri dohvaćanju NFT-ova:", error);
