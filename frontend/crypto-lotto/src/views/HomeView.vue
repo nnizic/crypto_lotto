@@ -35,12 +35,12 @@ import MojiNFTovi from "../components/MojiNFTovi.vue";
 import { isAdmin } from "../utils/contract";
 
 const account = ref(null);
-const isAdmin = ref(false);
+const adminStatus = ref(false);
 
 // prima event iz ConnectWallet
-async function setAccount({ address, isAdmin: adminStatus }) {
+async function setAccount({ address, adminStatus:isAdmin }) {
   account.value = address;
-  isAdmin.value = adminStatus;
+  adminStatus.value = isAdmin;
 }
 </script>
 
