@@ -7,7 +7,7 @@
     <div v-if="account">
       <p>Prijavljeni račun: {{ account }}</p>
 
-      <div v-if="isAdmin">
+      <div v-if="adminStatus">
         <resetiraj-izvlacenje />
         <izvuci-brojeve />
       </div>
@@ -32,15 +32,22 @@ import DobitniBrojevi from "../components/DobitniBrojevi.vue";
 import BrojIgraca from "../components/BrojIgraca.vue";
 import ResetirajIzvlacenje from "../components/ResetirajIzvlacenje.vue";
 import MojiNftovi from "../components/MojiNftovi.vue";
-import { isAdmin } from "../utils/contract";
+import { isAdmin as checkAdmin} from "../utils/contract";
 
 const account = ref(null);
 const adminStatus = ref(false);
 
 // prima event iz ConnectWallet
-async function setAccount({ address, adminStatus:isAdmin }) {
-  account.value = address;
-  adminStatus.value = isAdmin;
+async function setAccount({ address }) {
+    account.value = address;
+
+    try {
+        const result = await checkAdmin(address);
+        adminStatus.value = result;
+    } catch (error){
+        console.error("Greška pri provjeri admin statusa:", error);
+        adminStatus.value = false;
+    }
 }
 </script>
 
