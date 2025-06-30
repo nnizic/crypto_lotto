@@ -22,11 +22,8 @@ export function getNFTContract() {
 }
 
 // Provjera igrač ili admin
-export async function isAdmin() {
+export async function isAdmin(address) {
   const contract = getLottoContract();
   const owner = await contract.owner();
-  const accounts = await window.ethereum.request({
-    method: "eth_requestAccounts",
-  });
-  return accounts[0].toLowerCase() === owner.toLowerCase();
+  return address.toLowerCase() === owner.toLowerCase();
 }
