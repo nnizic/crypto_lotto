@@ -22,7 +22,7 @@ async function connectWallet() {
       account.value = addr;
 
       // provjera admin statusa
-      const admin = await isAdmin();
+      const admin = await isAdmin(addr);
       emit("walletConnected", { address: addr, isAdmin: admin });
 
     } catch (err) {
