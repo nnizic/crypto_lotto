@@ -10,7 +10,7 @@ import { getLottoContract } from "../utils/contract";
 
 async function izvuci() {
   try {
-    const contract = await getLottoContract();
+    const contract = getLottoContract();
     const tx = await contract.izvuci();
     await tx.wait();
     alert("Izvlačenje uspješno!");
