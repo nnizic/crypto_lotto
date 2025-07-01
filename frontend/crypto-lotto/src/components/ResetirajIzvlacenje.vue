@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <button @click="resetDraw" :disabled="loading">
@@ -9,16 +10,14 @@
 
 <script setup>
 import { ref } from "vue";
-import { ethers } from "ethers";
-import abi from "../contracts/CryptoLotto.json";
+import { getLottoContract, isAdmin } from "../utils/contract";
 
-const contractAddress = "0x543FC8F0133Bef8dde3a8a84e1d45f1459b57187";
 const message = ref("");
 const loading = ref(false);
 
 async function resetDraw() {
   if (!window.ethereum) {
-    message.value = "MetaMask nije pronađen";
+    message.value = "MetaMask nije pronađen.";
     return;
   }
 
@@ -27,8 +26,16 @@ async function resetDraw() {
     message.value = "";
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = await provider.getSigner();
-    const contract = new ethers.Contract(contractAddress, abi, signer);
+    const signer = provider.getSigner();
+    const userAddress = await signer.getAddress();
+
+    const admin = await isAdmin(userAddress);
+    if (!admin) {
+      message.value = "Niste ovlašteni za resetiranje izvlačenja.";
+      return;
+    }
+
+    const contract = getLottoContract();
 
     const tx = await contract.resetirajIzvlacenje();
     await tx.wait();
@@ -36,7 +43,11 @@ async function resetDraw() {
     message.value = "Uspješno resetirano izvlačenje!";
   } catch (err) {
     console.error(err);
-    message.value = "Greška pri resetiranju izvlačenja";
+    if (err?.reason?.includes("Jos nije izvuceno")) {
+      message.value = "Još nije izvršeno izvlačenje, nema što resetirati.";
+    } else {
+      message.value = "Greška pri resetiranju izvlačenja.";
+    }
   } finally {
     loading.value = false;
   }
@@ -61,3 +72,4 @@ p {
   margin-top: 0.5rem;
 }
 </style>
+
