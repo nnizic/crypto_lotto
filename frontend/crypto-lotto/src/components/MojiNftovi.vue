@@ -22,6 +22,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import { getNFTsByOwner } from "../contracts/LottoNFT";
+import { ethers } from "ethers";
 
 const props = defineProps({
   userAddress: {
@@ -34,11 +35,13 @@ const nfts = ref([]);
 const loading = ref(false);
 
 // dohvaća NFT-ove za korisnika
+
 async function fetchNFTs() {
   if (!props.userAddress) return;
   loading.value = true;
   try {
-    const tokenIds = await getNFTsByOwner(props.userAddress);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const tokenIds = await getNFTsByOwner(provider, props.userAddress);
     nfts.value = tokenIds;
   } catch (error) {
     console.error("Greška pri dohvaćanju NFT-ova:", error);
@@ -46,7 +49,6 @@ async function fetchNFTs() {
     loading.value = false;
   }
 }
-
 // IPFS URI helper
 function getIpfsLink() {
   // svi koriste isti base URI - ista slika NFT-a za svih
