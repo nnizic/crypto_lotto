@@ -10,6 +10,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { ethers } from "ethers";
 import { getLottoContract, isAdmin } from "../utils/contract";
 
 const message = ref("");
