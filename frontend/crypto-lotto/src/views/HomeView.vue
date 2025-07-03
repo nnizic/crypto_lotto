@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>CRYPTO LOTTO</h1>
+    <div class="container">
 
     <connect-wallet @wallet-connected="setAccount" />
 
@@ -20,6 +20,7 @@
       <dobitni-brojevi />
       <broj-igraca />
     </div>
+  </div>
   </div>
 </template>
 
